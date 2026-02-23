@@ -20,6 +20,7 @@
 </section>
 <script>
 async function createCheckout(priceId){
+  fetch('/api/track',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({event:'checkout_start'})}).catch(()=>{});
   const resp = await fetch('/api/create-checkout', {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({price:priceId})});
   const j=await resp.json();
   if(j.url) window.location=j.url; else alert('Error creating checkout');
@@ -27,5 +28,8 @@ async function createCheckout(priceId){
 document.getElementById('buyBasic').addEventListener('click', ()=>{createCheckout('price_1T42WrE4QKM7ohqH9qU83UFS');});
 document.getElementById('buyPro').addEventListener('click', ()=>{createCheckout('price_1T42WrE4QKM7ohqHHBATVPv2');});
 document.getElementById('buyAgency').addEventListener('click', ()=>{createCheckout('price_1T42WsE4QKM7ohqHPfVsfGgY');});
+
+// tracking
+fetch('/api/track',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({event:'visit'})}).catch(()=>{});
 </script>
 </body></html>
