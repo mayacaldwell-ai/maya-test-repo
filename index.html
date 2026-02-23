@@ -1,14 +1,31 @@
 <!doctype html>
-<html><head><meta charset=utf-8><title>Freelancer Proposal Kit</title></head><body>
-<h1>Freelancer Proposal Kit — Pro Bundle</h1>
-<p>Conversion-ready proposals, contract, pricing calculator, and onboarding sequences.</p>
-<button id=buyPro>Buy Pro — $49</button>
+<html><head><meta charset=utf-8><title>Freelancer Proposal Kit</title>
+<meta name="description" content="Conversion-ready proposal templates, contract, pricing calculator, and onboarding sequences for freelancers.">
+</head><body>
+<h1>Freelancer Proposal Kit</h1>
+<p>Professional proposal templates + contract + pricing tools to help freelancers win better clients.</p>
+<div>
+  <button id=buyBasic>Buy Basic — $19</button>
+  <button id=buyPro>Buy Pro — $49</button>
+  <button id=buyAgency>Buy Agency — $79</button>
+</div>
+<section>
+  <h2>What you get</h2>
+  <ul>
+    <li>Conversion-ready proposal templates (Notion, Google Docs, DOCX)</li>
+    <li>Customizable contract template</li>
+    <li>Pricing calculator + one-page pricing sheet generator</li>
+    <li>Invoice templates & onboarding email sequences</li>
+  </ul>
+</section>
 <script>
 async function createCheckout(priceId){
   const resp = await fetch('/api/create-checkout', {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({price:priceId})});
   const j=await resp.json();
   if(j.url) window.location=j.url; else alert('Error creating checkout');
 }
+document.getElementById('buyBasic').addEventListener('click', ()=>{createCheckout('price_1T42WrE4QKM7ohqH9qU83UFS');});
 document.getElementById('buyPro').addEventListener('click', ()=>{createCheckout('price_1T42WrE4QKM7ohqHHBATVPv2');});
+document.getElementById('buyAgency').addEventListener('click', ()=>{createCheckout('price_1T42WsE4QKM7ohqHPfVsfGgY');});
 </script>
 </body></html>
