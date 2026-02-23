@@ -1,0 +1,14 @@
+<!doctype html>
+<html><head><meta charset=utf-8><title>Freelancer Proposal Kit</title></head><body>
+<h1>Freelancer Proposal Kit — Pro Bundle</h1>
+<p>Conversion-ready proposals, contract, pricing calculator, and onboarding sequences.</p>
+<button id=buyPro>Buy Pro — $49</button>
+<script>
+async function createCheckout(priceId){
+  const resp = await fetch('/api/create-checkout', {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({price:priceId})});
+  const j=await resp.json();
+  if(j.url) window.location=j.url; else alert('Error creating checkout');
+}
+document.getElementById('buyPro').addEventListener('click', ()=>{createCheckout('price_1T42WrE4QKM7ohqHHBATVPv2');});
+</script>
+</body></html>
