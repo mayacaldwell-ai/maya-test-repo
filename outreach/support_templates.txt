@@ -1,0 +1,11 @@
+Welcome Email:
+Subject: Your Freelancer Kit — Download Link
+Hi [Name],
+Thanks for your purchase. Download here: [link]
+If you have issues, reply to this email and we'll help.
+
+Troubleshooting "I didn't receive my link":
+Reply template: Hi — sorry about that. Can you share the email used for purchase and the checkout session id? I'll resend the link.
+
+Refund approval (<=$79 auto):
+Processed automatically. If refund > $79, we will review and reply within 24 hours.
